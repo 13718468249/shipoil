@@ -1,0 +1,435 @@
+@charset "UTF-8";
+@import './_common.scss';
+/* 局部函数 */
+
+@mixin bar-item {
+  display: inline-block;
+  height: 100%;
+  font-size: 14px;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+@mixin clear-fix {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+@mixin oil-content {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+html,
+body {
+  @include max-size;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: $c_hei;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#app {
+  position: relative;
+  @include max-size;
+  overflow: auto;
+  color: $c_hei;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.color-on {
+  color: $c_oil;
+}
+
+.w {
+  &-1180 {
+    font-size: 0;
+    width: $w_1180;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  &-434 {
+    width: 434px;
+  }
+  &-350 {
+    width: 350px;
+  }
+  &-195 {
+    width: 195px;
+  }
+}
+
+.mg {
+  &-r {
+    &-10 {
+      margin-right: 10px;
+    }
+  }
+  &-t {
+    &-10 {
+      margin-top: 10px;
+    }
+    &-24 {
+      margin-top: 24px;
+    }
+  }
+}
+
+.or {
+  &-btn-list {
+    text-align: right;
+    margin-top: 20px;
+  }
+}
+
+.bar {
+  &-top {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #818287;
+  }
+  &-left {
+    @include bar-item;
+    box-sizing: border-box;
+    padding-right: 20px;
+    width: 180px;
+    .el-menu {
+      border-right: none;
+    }
+  }
+  &-right {
+    @include bar-item;
+    width: 1000px;
+  }
+  &-search {
+    padding: 17px 10px;
+    margin-top: 10px;
+    background-color: #F7F7F7;
+    overflow: hidden;
+    .w-195 {
+      width: 195px;
+    }
+    .w-267 {
+      width: 267px;
+      &.el-input__inner {
+        width: 267px;
+      }
+    }
+    .mg-r-0 {
+      margin-bottom: 10px;
+      &.el-form-item {
+        margin-right: 164px;
+      }
+    }
+    .mg-r-1 {
+      margin-bottom: 10px;
+      margin-right: 0;
+    }
+    .mg-b-20 {
+      float: right;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
+  &-top {
+    width: 100%;
+    display: flex;
+    height: 36px;
+    li {
+      width: 98px;
+      height: 34px;
+      color: $c_hei;
+      font-size: 14px;
+      line-height: 34px;
+      text-align: center;
+      border: 1px solid #ebebeb;
+      margin-right: 10px;
+      cursor: pointer;
+      &:first-child {
+        width: 120px;
+      }
+      &.active {
+        border: 1px solid $c_oil;
+        color: $c_oil;
+      }
+    }
+  }
+  &-bottom {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 30px;
+    li {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      .b-left {
+        opacity: 0;
+      }
+      &:first-of-type {
+        .b-left {
+          opacity: 1;
+        }
+      }
+    }
+    .b-left {
+      height: 100%;
+      flex: 2;
+      span {
+        display: inline-block;
+        font-size: 14px;
+        margin-right: 3px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+/*清除浮动*/
+
+.clearfix {
+  *zoom: 1;
+  /*解决ie6/7下面的浮动塌陷问题*/
+  &:before {
+    @include clear-fix();
+  }
+  /*display:table;解决其他下面的浮动塌陷问题,line-height是将添加的内容高度设为0；*/
+  &:after {
+    @include clear-fix();
+    clear: both;
+  }
+}
+
+.width40 {
+  width: 40%;
+}
+
+.float {
+  &-r {
+    float: right;
+  }
+  &-l {
+    float: left;
+  }
+}
+
+.index-table {
+  margin-top: 30px;
+  thead th {
+    background-color: #F7F7F7;
+  }
+  .btn-operate {
+    width: 68px;
+    margin: 0 2px;
+  }
+  td:last-child {
+    text-align: center;
+  }
+  .oil-btn {
+    margin-bottom: 4px;
+  }
+}
+
+.cell {
+  text-align: center;
+}
+
+/* 订单页面样式 */
+
+.order {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  &-type {
+    flex: 1;
+    display: flex;
+    margin-top: 20px;
+    li {
+      margin-right: 10px;
+    }
+  }
+  &-order {
+    flex: 1;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+    .p {
+      color: $c_oil;
+      height: 30px;
+      text-decoration: underline;
+      line-height: 30px;
+      cursor: pointer;
+    }
+    li {
+      border-radius: 2px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.choice-details>.oil-btn {
+  margin-right: 10px;
+}
+
+.details-head {
+  overflow: hidden;
+  .details-head-list {
+    padding: 10px 0;
+    width: 268px;
+    height: 36px;
+    line-height: 36px;
+    float: left;
+    &:nth-of-type(2) {
+      width: 120px;
+    }
+    span {
+      &:first-child {
+        color: #666666;
+      }
+      &:nth-of-type(2) {
+        color: #151515;
+      }
+    }
+  }
+}
+
+.el-icon-delete {
+  color: $c_oil;
+}
+
+.page-box {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.list-bottom {
+  border-bottom: 1px solid #ececec;
+}
+
+.pointer {
+  font-style: normal;
+  cursor: pointer;
+}
+
+.noInfo {
+  text-align: center;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  padding: 18px 20px 20px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #f6f6f6;
+}
+
+.oil-type-list {
+  padding-bottom: 10px;
+}
+
+/* reset style */
+
+.oil-client {
+  width: 100%;
+  .oil-order {
+    width: 1180px;
+    font-size: 0;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+}
+
+.oil-server {
+  padding: 30px 20px;
+  @include oil-content();
+  .oil-order {
+    padding: 0;
+  }
+  .bar-right {
+    width: 100%;
+  }
+}
+
+.msg-form {
+  .el-form-item {
+    margin-bottom: 0;
+  }
+  .oil-title-2 {
+    line-height: 40px;
+  }
+}
+
+/* 订单中心 */
+
+.b-right {
+  flex: 8;
+  display: flex;
+  span {
+    color: $c_hei;
+    font-size: 14px;
+    line-height: 67px;
+    text-decoration: underline;
+    flex: 9;
+  }
+  &-btn {
+    display: flex;
+    flex: 1;
+    i {
+      flex: 1;
+      margin-top: 25px;
+      cursor: pointer;
+      &:last-child {
+        margin-right: 0;
+        margin-top: 25px;
+      }
+    }
+  }
+}
+
+.sub-btn {
+  width: 100px;
+  height: 36px;
+  background: $c_oil;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 36px;
+  color: $c_bai;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  &:hover {
+    background: $c_oil_on;
+  }
+}
+
+.back-btn {
+  margin-right: 0;
+}

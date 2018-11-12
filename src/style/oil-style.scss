@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import './_common.scss';
+.oil {
+  /* 按钮 */
+  &-btn {
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    padding: 0 12px;
+    line-height: 28px;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    &[type="primary"] {
+      color: $c_oil;
+      border-color: $c_oil;
+      &:hover {
+        color: $c_bai;
+        border-color: $c_oil_on;
+      }
+    }
+    &[type="fill"] {
+      border-color: $c_oil;
+      background-color: $c_oil;
+      color: $c_bai;
+    }
+    & a {
+      color: inherit;
+      display: block;
+    }
+  }
+  /* 链接 */
+  &-link {
+    display: block;
+  }
+  /* 侧边栏 */
+  &-menu {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    + .oil-menu {
+      margin-top: 10px;
+    }
+    &-title {
+      width: 100%;
+      background-color: $c_hei;
+      color: $c_bai;
+      height: 40px;
+      line-height: 40px;
+    }
+    &-item {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      cursor: pointer;
+      box-sizing: border-box;
+      &.on {
+        border-bottom: 1px solid $c_oil;
+      }
+    }
+  }
+  /* 导航 */
+  &-tabs {
+    height: 100%;
+    font-size: 0;
+    &-item {
+      display: inline-block;
+      height: 100%;
+      width: 60px;
+      font-size: 14px;
+      line-height: 60px;
+      text-align: center;
+      vertical-align: top;
+      &.on {
+        color: $c_oil;
+      }
+    }
+  }
+  /* 标题 */
+  &-title {
+    &-1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    &-2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+
+.on a {
+  color: $c_oil;
+}

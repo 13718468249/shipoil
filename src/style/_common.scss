@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+/* 颜色 */
+$c_oil: #F36523;
+$c_oil_on: #ff9d32;
+$c_oil_bg: #fef0e9;
+$c_bai: #ffffff;
+$c_hei: #333333;
+$c_hui: #818287;
+/* 宽度 */ 
+$w_1180: 1180px;
+/* 函数 */
+@mixin max-size {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
